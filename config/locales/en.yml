@@ -30,4 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  work_shift:
+    errors:
+      invalid_shift_range: "shift end time can't be less than shift start time"

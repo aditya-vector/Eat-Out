@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :work_shift do
-    starts_at "2018-04-08 18:41:47"
-    ends_at "2018-04-08 18:41:47"
+    starts_at { Faker::Time.between(1.day.ago, 1.day.ago, :morning) }
+    ends_at { Faker::Time.between(1.day.ago, 1.day.ago, :afternoon) }
   end
 end
