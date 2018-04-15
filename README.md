@@ -39,11 +39,11 @@
 ```
 { 
   reservation: {
-    work_shift_id: work_shift.id,
-    arrival_at: work_shift.ends_at + 2.hours,
-    guest_count: 11,
-    guest_id: guest.id,
-    seating_table_id: seating_table.id 
+    work_shift_id: 12,
+    arrival_at: 2000-01-01T06:38:38.000Z,
+    guest_count: 4,
+    guest_id: 102,
+    seating_table_id: 64
   }
 }
 ```
