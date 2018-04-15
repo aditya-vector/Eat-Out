@@ -33,3 +33,8 @@ en:
   work_shift:
     errors:
       invalid_shift_range: "shift end time can't be less than shift start time"
+  reservation:
+    errors:
+      invalid_guest_count: 'guest count must be between allowed count from selected table'
+      restaurant_not_matching: 'selected table and shift must be from same restaurant'
+      arrival_at_invalid: "reservation time must be between selected shift timing: %{shift_range}"

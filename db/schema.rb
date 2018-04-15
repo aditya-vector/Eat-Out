@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408131147) do
+ActiveRecord::Schema.define(version: 20180415133357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20180408131147) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_guests_on_email", unique: true
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "work_shift_id", null: false
+    t.time "arrival_at", null: false
+    t.bigint "guest_id", null: false
+    t.integer "guest_count", null: false
+    t.bigint "seating_table_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_reservations_on_guest_id"
+    t.index ["seating_table_id"], name: "index_reservations_on_seating_table_id"
+    t.index ["work_shift_id"], name: "index_reservations_on_work_shift_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -48,5 +61,8 @@ ActiveRecord::Schema.define(version: 20180408131147) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "reservations", "guests"
+  add_foreign_key "reservations", "seating_tables"
+  add_foreign_key "reservations", "work_shifts"
   add_foreign_key "seating_tables", "restaurants"
 end

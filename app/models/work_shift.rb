@@ -1,7 +1,11 @@
 class WorkShift < ApplicationRecord
+
+  belongs_to :restaurant
+
   validates :starts_at, presence: true
   validates :ends_at, presence: true
   validate :end_date_range
+
 
   def end_date_range
     return if ends_at.blank? || starts_at.blank?
